@@ -1,12 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.battle-arena {
+    padding: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    /* width: 100%; */
+}
+
 .character {
-    width: 100px;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
     border: 2px solid black;
-    cursor: pointer;
+    font-size: 2rem;
+    padding: 1em;
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.hud-enemy {
+    justify-content: flex-end;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    box-shadow: 0.1em 0.1em 0.3em black;
+    width: 50%;
+}
+
+.name {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
 }
 
 .btn {
-    width: 100px;
-    height: 50px;
     cursor: pointer;
+    text-transform: uppercase;
+    height: 33%;
+}
+
+.img-monster {
+    position: relative;
+    display: none;
+    animation: monster1BodyScale 1s alternate infinite;
+}
+.img-monster::before {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 15%;
+    background-color: red;
+    animation: monster1EyesBlink 1s alternate infinite;
+}
+
+@keyframes monster1EyesBlink {
+    to {
+        background-color: white;
+    }
+}
+@keyframes monster1BodyScale {
+    to {
+        transform: scale(1.02);
+    }
 }
