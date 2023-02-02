@@ -12,6 +12,7 @@ const enemyAttack = document.querySelector('.stats-enemy .attack')
 const enemyDefence = document.querySelector('.stats-enemy .defence')
 const enemyHealth = document.querySelector('.stats-enemy .health')
 const imgMonster1 = document.querySelector('.img-monster1')
+const imgMonster2 = document.querySelector('.img-monster2')
 let power;
 let damage;
 const activities = [launchAttack,launchSpecialAttack,launchFocus]
@@ -53,7 +54,7 @@ class Monster extends Character {
     }
 }
 const monster1 = new Monster('Monster1',20,10,imgMonster1)
-const monster2 = new Monster('Monster2',15,15,imgMonster1)
+const monster2 = new Monster('Monster2',15,15,imgMonster2)
 const monsters = [monster1,monster2]
 const enemy = monsters[Math.round(Math.random())]
 enemy.showImage()

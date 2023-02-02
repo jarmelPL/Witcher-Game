@@ -7,6 +7,9 @@
     <script src="https://kit.fontawesome.com/96c6742b67.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,7 +18,7 @@
         <div class="character char-player">
             <div class="hud hud-player">
                 <div class="stats stats-player">
-                    <p class="name">Lolname</p>
+                    <h3 class="name">Lolname</h3>
                     <p>Strength: <span class="attack">20</span></p>
                     <p>Defence: <span class="defence">20</span></p>
                     <p>Health: <span class="health">100</span></p>
@@ -26,22 +29,25 @@
                     <button class="btn focus-btn">focus</button>
                 </div>
             </div>
-            <img src="img/monster1.png" alt="Player image" class="img img-player">
+            <img src="img/player.png" alt="Player image" class="img img-player">
+            <div class="bg bg-player"></div>
         </div>
 
         <div class="character char-enemy">
             <div class="img img-monster img-monster1">
-                <img src="img/monster1.png" alt="Enemy image" class="img-monster1-body">
-                <!-- <img src="img/monster2.png" alt="Enemy image" class="img-monster1-hand">
-                <img src="img/monster2.png" alt="Enemy image" class="img-monster1-hand">
-                <img src="img/monster2.png" alt="Enemy image" class="img-monster1-leg"> -->
+                <img src="img/monster1-body.png" alt="Enemy image" class="img-monster1-body">
+                <img src="img/monster1-hands.png" alt="Enemy image" class="img-monster1-hands">
+                <img src="img/monster1-legs.png" alt="Enemy image" class="img-monster1-legs">
             </div>
-            <!-- <div class="img img-monster img-monster2">
-                <img src="img/monster2.png" alt="Enemy image" class="img-monster2-body">
-            </div> -->
+            <div class="img img-monster img-monster2">
+                <img src="img/monster2-body.png" alt="Enemy image" class="img-monster2-body">
+                <img src="img/monster2-wing-left.png" alt="Enemy image" class="img-monster2-wing-left">
+                <img src="img/monster2-wing-right.png" alt="Enemy image" class="img-monster2-wing-right">
+            </div>
+            <div class="bg bg-enemy"></div>
             <div class="hud hud-enemy">
                 <div class="stats stats-enemy">
-                    <p class="name">Lolname</p>
+                    <h3 class="name">Lolname</h3>
                     <p>Strength: <span class="attack">20</span></p>
                     <p>Defence: <span class="defence">20</span></p>
                     <p>Health: <span class="health">100</span></p>
