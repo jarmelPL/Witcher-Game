@@ -1,5 +1,6 @@
 const playerArea = document.querySelector('.char-player')
 const enemyArea = document.querySelector('.char-enemy')
+const btns = document.querySelectorAll('.btn')
 const attackBtn = document.querySelector('.attack-btn')
 const specialAttackBtn = document.querySelector('.special-attack-btn')
 const focusBtn = document.querySelector('.focus-btn')
@@ -13,6 +14,8 @@ const enemyDefence = document.querySelector('.stats-enemy .defence')
 const enemyHealth = document.querySelector('.stats-enemy .health')
 const imgMonster1 = document.querySelector('.img-monster1')
 const imgMonster2 = document.querySelector('.img-monster2')
+const playerFocus = document.querySelector('.img-player::after')
+const enemyFocus = document.querySelector('.img-monster::after')
 let power;
 let damage;
 const activities = [launchAttack,launchSpecialAttack,launchFocus]
@@ -82,28 +85,45 @@ function calculateAttack() {
     if (turn.health<0) {console.log(turn.name + 'przegrał')}
 }
 
+function enemyAct() {
+    activities[Math.round(Math.random()*2)]()
+    btns.forEach(item => {
+        item.removeAttribute('disabled')
+    })
+}
+
+function calculateStatsAndEnemyAct() {
+    calculateStats()
+    if (turn===enemy) {
+        btns.forEach(item => {
+            item.setAttribute('disabled','')
+        })
+        setTimeout(enemyAct,3000)
+    }
+}
+
 function launchAttack() {
     turn.attack()
     calculateAttack()
-    calculateStats()
+    calculateStatsAndEnemyAct()
 }
 
 function launchSpecialAttack() {
     turn.specialAttack()
     calculateAttack()
-    calculateStats()
+    calculateStatsAndEnemyAct()
 }
 
 function launchFocus() {
     turn.focus()
+    playerFocus.classList.toggle('focus-active',turn===enemy)
     turn=player === turn ? enemy : player
-    calculateStats()
+    calculateStatsAndEnemyAct()
 }
 
-function enemyAct() {
-    activities[Math.round(Math.random()*2)]()
-}
 
 attackBtn.addEventListener('click',launchAttack)
 specialAttackBtn.addEventListener('click',launchSpecialAttack)
 focusBtn.addEventListener('click',launchFocus)
+
+//JAK POBRAĆ PSEUDOELEMENT??

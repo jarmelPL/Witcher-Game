@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -93,12 +94,48 @@ html {
     background-color: rgb(40, 40, 70);
     border-bottom-left-radius: 50%;;
     border-bottom-right-radius: 50%;
-    animation: bgThunderstorm 2s alternate infinite;
+    animation: bgThunderstorm 2s infinite;
 }
-
+.img-player {
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+.img-player::after, .img-monster::after {
+    position: absolute;
+    content: '';
+    height: 160%;
+    width: 160%;
+    border: 3em solid rgba(255, 217, 0, 0.709);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+.focus-active {
+    animation: focus 1s; 
+}
+.img-player-hand-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: playerLeftHand 1s alternate infinite;
+    transform-origin: top;
+    transform: rotate(-2deg);
+}
+.img-player-hand-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: playerRightHand 1s alternate infinite;
+    transform-origin: top;
+    transform: rotate(3deg);
+}
 .img-monster {
     position: relative;
     display: none;
+    overflow: hidden;
 }
 .img-monster1::before {
     position: absolute;
@@ -172,7 +209,7 @@ html {
         background-color: rgb(242, 242, 141);
     }
     11% {
-        background-color: rgb(50, 50, 110);
+        background-color: rgb(50, 50, 100);
     }
     40% {
         background-color: rgb(40, 40, 70);
@@ -181,7 +218,7 @@ html {
         background-color: rgb(242, 242, 141);
     }
     44% {
-        background-color: rgb(50, 50, 110);
+        background-color: rgb(50, 50, 100);
     }
     85% {
         background-color: rgb(40, 40, 70);
@@ -190,7 +227,17 @@ html {
         background-color: rgb(242, 242, 141);
     }
     90% {
-        background-color: rgb(50, 50, 110);
+        background-color: rgb(50, 50, 100);
+    }
+}
+@keyframes playerLeftHand {
+    to {
+        transform: rotate(2deg);
+    }
+}
+@keyframes playerRightHand {
+    to {
+        transform: rotate(0deg);
     }
 }
 @keyframes monsterEyesBlink {
@@ -221,5 +268,12 @@ html {
 @keyframes monster2RightWing {
     to {
         transform: rotateZ(4deg);
+    }
+}
+@keyframes focus {
+    to {
+        height: 0;
+        width: 0;
+        opacity: 0;
     }
 }
